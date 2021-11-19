@@ -51,7 +51,6 @@ def image_to_blocks(path: str):
 		out.append(ylist)
 	
 	out = out[::-1]
-	print(out)
 	return out
 
 def blocks_to_we(blocks: List[List[str]]) -> str:
