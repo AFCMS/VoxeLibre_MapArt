@@ -4,6 +4,10 @@ This is a python3 project you can use with the [MineClone2](https://git.minetest
 
 This project take an image and output a [WorldEdit](https://github.com/Uberi/Minetest-WorldEdit) shematic featuring MineClone2 blocks that matched the colors of image the best.
 
+![Screenshot1](./screenshot_1.png)
+
+![Screenshot2](./screenshot_2.png)
+
 ## Usage
 
 ### Basic Use
