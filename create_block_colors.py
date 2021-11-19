@@ -2,10 +2,9 @@ import json, os, sys
 
 from typing import *
 from PIL import Image
-#from pathlib import Path
 
 colors = {}
-palettes = {}
+#palettes = {}
 
 mcl2_path = None
 
@@ -21,7 +20,7 @@ with open("./generate_json_blocks/availlable_blocks.json") as base_blocks:
 	blocks = json.loads(base_blocks.read())
 	#print(blocks)
 
-def texture_to_color(path: str) -> Tuple[int]:
+def texture_to_color(path: str) -> Optional[Tuple[int, int, int]]:
 	try:
 		img = Image.open(path).convert("RGBA")
 		pixels = img.load()
@@ -64,7 +63,7 @@ def texture_to_color(path: str) -> Tuple[int]:
 
 		img.close()
 	except IOError:
-		pass
+		return None
 
 print("Finding files...")
 

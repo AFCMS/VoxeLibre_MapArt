@@ -11,13 +11,13 @@ with open("block_colors.json", "r") as block_files:
 	#print(blocks)
 
 
-def vector_distance(a: Tuple[int], b: Tuple[int]) -> float:
+def vector_distance(a: Tuple[int, int, int], b: Tuple[int, int, int]) -> float:
 	return math.hypot(a[0] - b[0], math.hypot(a[1] - b[1], a[2] - b[2]))
 
 
-def rgb_to_nearest(color: Tuple[int]) -> str:
+def rgb_to_nearest(color: Tuple[int, int, int]) -> Optional[str]:
 	assert len(color) == 3
-	calculated: Dict[int] = {}
+	calculated = {}
 	for b in blocks:
 		calculated[b] = vector_distance(blocks[b], color)
 
@@ -32,7 +32,7 @@ def rgb_to_nearest(color: Tuple[int]) -> str:
 	return e
 
 
-def image_to_blocks(path: str) -> List[List[str]]:
+def image_to_blocks(path: str):
 	img = Image.open(path).convert("RGB")
 	pixels = img.load()
 
