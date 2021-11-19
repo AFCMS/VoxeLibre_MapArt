@@ -1,0 +1,21 @@
+name: linting
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v2
+      - name: luacheck
+        uses: nebularg/actions-luacheck@v1.1.0
+      - name: python-lint
+        uses: jpetrucciani/mypy-check@master
