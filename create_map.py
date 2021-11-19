@@ -36,10 +36,9 @@ def image_to_blocks(path: str):
 	img = Image.open(path).convert("RGB")
 
 	# flip image
-	img.show()
 	img = img.transpose(Image.FLIP_LEFT_RIGHT)
 	img = img.rotate(180)
-	img.show()
+	#img.show()
 
 	pixels = img.load()
 
