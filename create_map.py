@@ -36,7 +36,10 @@ def image_to_blocks(path: str):
 	img = Image.open(path).convert("RGB")
 
 	# flip image
-	#img.transpose(Image.FLIP_LEFT_RIGHT)
+	img.show()
+	img = img.transpose(Image.FLIP_LEFT_RIGHT)
+	img = img.rotate(180)
+	img.show()
 
 	pixels = img.load()
 
@@ -47,10 +50,10 @@ def image_to_blocks(path: str):
 		for y in range(0, img.size[1]):
 			r, g, b = pixels[x, y]
 			ylist.append(rgb_to_nearest((r, g, b)))
-			ylist = ylist[::-1]
+			#ylist = ylist[::-1]
 		out.append(ylist)
 	
-	out = out[::-1]
+	#out = out[::-1]
 	return out
 
 def blocks_to_we(blocks: List[List[str]]) -> str:
