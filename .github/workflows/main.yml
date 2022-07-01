@@ -2,9 +2,9 @@ name: linting
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
   workflow_dispatch:
 
@@ -19,3 +19,5 @@ jobs:
         uses: nebularg/actions-luacheck@v1.1.0
       - name: python-lint
         uses: jpetrucciani/mypy-check@master
+        with:
+          mypy_flags: "--install-types --non-interactive"
